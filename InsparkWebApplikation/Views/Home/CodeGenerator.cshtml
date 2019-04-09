@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "CodeGenerator";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<h2>CodeGenerator</h2>
+
+<head>
+    <style>
+        table, th, td {
+            margin: 10px 0;
+            border: solid 1px #333;
+            padding: 2px 4px;
+            font: 15px Verdana;
+        }
+
+        th {
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
+    <script src="../../Scripts/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+    <select id="DropDown"></select>
+    <input id="btnGetGroups" class="btn btn-success" type="button"
+           value="Hämta grupper" />
+
+    <select id="DropDownGroups"></select>
+    <input type="text" id="tfHowManyCodes" value="Skriv antal koder">
+
+    <input id="btnGenerateCodes" class="btn btn-success" type="button"
+           value="Generera koder" onclick="getData();" />
+    <label id="testLabel" />
+
+    <input type="button" id="btnCreateTableFromJSON" value="Visa koder för aktuell grupp" />
+    <div id="showData"></div>
+
+    <script type="text/javascript" src="~/Scripts/Custom/codeGenerator.js"></script>
+</body>
+
+
+

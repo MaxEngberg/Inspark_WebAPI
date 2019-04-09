@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Confirm Email</h2>
+<body>
+    <div class="form-group">
+        <label for="email" class="col-sm-3 control-label">Email</label>
+            <div class="col-sm-9">
+                <input type="text" id="tfCode" placeholder="Code" class="form-control" autofocus>
+        </div>
+    </div>
+    <div>
+        <input id="btnConfirmEmail" class="btn btn-primary" type="button"
+               value="Confirm Email" onclick="confirmCode()" />
+    </div>
+    <script>
+
+    function confirmCode() {
+        var code = document.getElementById("tfCode").value;
+        $.ajax({
+            url: "http://oruinsparkwebapi.azurewebsites.net/api/ConfirmEmail/Validate/"+code+"",
+            method: 'POST',
+            contentType: 'application/json',
+            success: function () {
+                alert("Kod verifierad");
+            },
+            error: function () {
+                alert("Kod ej ok");
+            }
+        });
+
+    };
+    </script>
+</body>

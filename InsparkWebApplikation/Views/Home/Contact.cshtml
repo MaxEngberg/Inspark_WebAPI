@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<h2>Confirm Email</h2>
+
+<body>
+    <div class="form-group">
+        <label for="email" class="col-sm-3 control-label">Email</label>
+        <div class="col-sm-9">
+            <input type="text" id="tfId" placeholder="Code" class="form-control" autofocus>
+            <input type="text" id="tfOldPassword" placeholder="Code" class="form-control" autofocus>
+            <input type="text" id="tfNewPassword" placeholder="Code" class="form-control" autofocus>
+            <input type="text" id="tfConfirmPassword" placeholder="Code" class="form-control" autofocus>
+        </div>
+    </div>
+
+    <div>
+        <input id="btnConfirmEmail" class="btn btn-primary" type="button"
+               value="Confirm Email" onclick="confirmCode()" />
+    </div>
+</body>
+
+  <script>
+  
+    function confirmCode() {
+        var id = document.getElementById("tfId").value;
+        var old = document.getElementById("tfOldPassword").value;
+        var newP = document.getElementById("tfNewPassword").value;
+        var confirm = document.getElementById("tfConfirmPassword").value;
+        var message = { Id: id, OldPassword: old, NewPassword: newP, ConfirmPassword: confirm };
+        var token = sessionStorage.getItem("accessToken");
+
+        $.ajax({
+            url: "http://oruinsparkwebapi.azurewebsites.net/api/Account/ChangePassword",
+            headers: { "Authorization": 'Bearer ' + token },
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(message),
+            success: function () {
+                alert("Kod verifierad");
+            },
+            error: function () {
+                alert("Kod ej ok");
+            }
+        });
+     
+    };
+  </script>
+</body>

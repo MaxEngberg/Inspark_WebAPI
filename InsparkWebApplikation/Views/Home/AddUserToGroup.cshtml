@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "AddUserToGroup";
+    Layout = "../Shared/_Layout.cshtml";
+}
+<head>
+    <link rel="stylesheet" href="~/Content/jquery-ui.min.css">
+    <link rel="stylesheet" href="~/Content/Site.css">
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+</head>
+
+<body>
+
+    <div class="userContainer">
+        <div id="userDiv">
+            <input type="text" name="search" id="search" placeholder="Sök efter
+                   person" class="form-control" />
+            <ul class="userList dragable"></ul>
+        </div>
+
+        <div id="groupDiv">
+            <div id="selectSectionDiv">
+                <label>Select Section</label>
+                <select id="DropDown">
+                    <option>Select Section</option>
+                </select>
+            </div>
+            <div id="selectGroupDiv">
+                <label>Select Group</label>
+                <select id="DropDownGroups"></select>
+                <input id="btnShowGroupMembers" class="btn btn-success" type="button"
+                       value="Visa grupp" />
+            </div>
+            <ul class="usersOfGroupList dragable"></ul>
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="~/Scripts/Custom/addUserToGroup.js"></script>
+
+</body>

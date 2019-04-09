@@ -1,0 +1,110 @@
+﻿@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<head>
+    <script src="../../Scripts/jquery-3.3.1.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <form class="form-horizontal" role="form">
+            <h2 style="text-align:center">Skapa användare</h2>
+
+            <div class="form-group">
+                <label for="email" class="col-sm-3 control-label">Email</label>
+                <div class="col-sm-9">
+                    <input type="text" id="tfEmail" placeholder="Email" class="form-control" autofocus>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="col-sm-3 control-label">Lösenord</label>
+                <div class="col-sm-9">
+                    <input type="password" id="tfPassword" placeholder="Lösenord" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword" class="col-sm-3 control-label">Bekräfta lösenord</label>
+                <div class="col-sm-9">
+                    <input type="password" id="tfConfirmPassword" placeholder="Bekräfta lösenord" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="firstName" class="col-sm-3 control-label">Förnamn</label>
+                <div class="col-sm-9">
+                    <input type="text" id="tffirstName" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName" class="col-sm-3 control-label">Efternamn</label>
+                <div class="col-sm-9">
+                    <input type="text" id="tflastName" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="section" class="col-sm-3 control-label">Sektion</label>
+                <div class="col-sm-9">
+                    <select id="dropDownSections" class="form-control">
+                        <option>Corax</option>
+                        <option>Sesam</option>
+                        <option>Serum</option>
+                        <option>Sobra</option>
+                        <option>Grythyttan</option>
+                        <option>Qultura</option>
+                        <option>Tecknat</option>
+                        <option>GIH</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-3">Roll</label>
+                <div class="col-sm-4">
+                    <div class="row">
+
+                        <div class="col-sm-3">
+                            <label class="radio-inline">
+                                <input type="radio" name="Roles" id="adminRadio" value="Admin">Admin
+                            </label>
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="radio-inline">
+                                <input type="radio" name="Roles" id="kontaktFadderRadio" value="Kontaktfadder">Kontaktfadder
+                            </label>
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="radio-inline">
+                                <input type="radio" name="Roles" id="fadderRadio" value="Fadder">Fadder
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-9 col-sm-offset-3">
+                    <input id="btnCreateUsers" class="btn btn-primary" type="button"
+                           value="Skapa användare" onclick="CreateUser();" />
+                    <input id="btnCleanWindow" class="btn btn-primary" type="button"
+                           value="Rensa fält" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div id="divError" class="alert alert-danger collapse">
+                    <a id="linkClose" href="#" class="close">&times;</a>
+                    <div id="divErrorText"></div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <script type="text/javascript" src="~/Scripts/Custom/createUser.js"></script>
+</body>
